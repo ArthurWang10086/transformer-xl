@@ -29,7 +29,7 @@ TEST_NUM_CORE=1
 
 
 if [[ $1 == 'train_data' ]]; then
-    python data_utils.py \
+    /opt/conda/bin/python data_utils.py \
         --data_dir=${DATA_ROOT}/ \
         --dataset=wt103 \
         --tgt_len=${TGT_LEN} \
@@ -39,7 +39,7 @@ if [[ $1 == 'train_data' ]]; then
         --use_tpu=False \
         ${@:2}
 elif [[ $1 == 'test_data' ]]; then
-    python data_utils.py \
+    /opt/conda/bin/python data_utils.py \
         --data_dir=${DATA_ROOT}/ \
         --dataset=enwik8 \
         --tgt_len=${TEST_TGT_LEN} \
@@ -49,7 +49,7 @@ elif [[ $1 == 'test_data' ]]; then
         ${@:2}
 elif [[ $1 == 'train' ]]; then
     echo 'Run training...'
-    python train_gpu.py \
+    /opt/conda/bin/python train_gpu.py \
         --data_dir=${DATA_ROOT}/tfrecords \
         --record_info_dir=${DATA_ROOT}/tfrecords/ \
         --corpus_info_path=${DATA_ROOT}/corpus-info.json \
@@ -77,7 +77,7 @@ elif [[ $1 == 'train' ]]; then
         ${@:2}
 elif [[ $1 == 'eval' ]]; then
     echo 'Run evaluation...'
-    python train_gpu.py \
+    /opt/conda/bin/python train_gpu.py \
         --data_dir=${DATA_ROOT}/tfrecords \
         --record_info_dir=${DATA_ROOT}/tfrecords/ \
         --corpus_info_path=${DATA_ROOT}/corpus-info.json \

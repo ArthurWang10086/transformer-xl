@@ -9,7 +9,7 @@ function download () {
   filename=${fileurl##*/}
   if [ ! -f ${filename} ]; then
     echo ">>> Download '${filename}' from '${fileurl}'."
-    wget --quiet ${fileurl}
+    wget  ${fileurl}
   else
     echo "*** File '${filename}' exists. Skip."
   fi
